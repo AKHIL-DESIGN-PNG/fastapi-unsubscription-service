@@ -118,13 +118,7 @@ Now visit **[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)** for the S
 pytest
 ```
 
----
 
-## 📊 Future Enhancements
-
-* Add email notifications for unsubscribe confirmations
-* Integrate dashboards using Streamlit or React
-* Include role-based authentication for admin access
 
 ---
 
