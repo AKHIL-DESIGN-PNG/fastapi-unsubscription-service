@@ -1,0 +1,69 @@
+INFO - select pg_catalog.version()
+INFO - [raw sql] ()
+INFO - select current_schema()
+INFO - [raw sql] ()
+INFO - show standard_conforming_strings
+INFO - [raw sql] ()
+INFO - BEGIN (implicit)
+INFO - SELECT users_details.id, users_details.username, users_details.email, users_details.reason, users_details.comments, users_details.is_active 
+FROM users_details 
+WHERE users_details.username = $1::VARCHAR
+INFO - [generated in 0.00115s] ('akiiiiii',)
+INFO - INSERT INTO users_details (username, email, reason, comments, is_active) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::BOOLEAN) RETURNING users_details.id
+INFO - [generated in 0.00184s] ('akiiiiii', 'john.doe@example.com', 'Other', 'many mails', False)
+INFO - COMMIT
+INFO - BEGIN (implicit)
+INFO - SELECT users_details.id, users_details.username, users_details.email, users_details.reason, users_details.comments, users_details.is_active 
+FROM users_details 
+WHERE users_details.id = $1::INTEGER
+INFO - [generated in 0.00119s] (28,)
+INFO - New user akiiiiii unsubscribed successfully.
+INFO - ROLLBACK
+INFO - BEGIN (implicit)
+INFO - SELECT users_details.id, users_details.username, users_details.email, users_details.reason, users_details.comments, users_details.is_active 
+FROM users_details 
+WHERE lower(users_details.username) ILIKE $1::VARCHAR
+INFO - [generated in 0.00122s] ('%aki%',)
+INFO - ROLLBACK
+INFO - Executing query: SELECT users_details.id, users_details.username, users_details.email, users_details.reason, users_details.comments, users_details.is_active 
+FROM users_details 
+WHERE users_details.is_active = true
+INFO - BEGIN (implicit)
+INFO - SELECT users_details.id, users_details.username, users_details.email, users_details.reason, users_details.comments, users_details.is_active 
+FROM users_details 
+WHERE users_details.is_active = true
+INFO - [generated in 0.00119s] ()
+INFO - COMMIT
+INFO - Fetched 1 users from the database.
+INFO - Executing query: SELECT users_details.id, users_details.username, users_details.email, users_details.reason, users_details.comments, users_details.is_active 
+FROM users_details 
+WHERE users_details.is_active = false
+INFO - BEGIN (implicit)
+INFO - SELECT users_details.id, users_details.username, users_details.email, users_details.reason, users_details.comments, users_details.is_active 
+FROM users_details 
+WHERE users_details.is_active = false
+INFO - [generated in 0.00108s] ()
+INFO - COMMIT
+INFO - Fetched 27 users from the database.
+INFO - Executing query with filters: [<sqlalchemy.sql.elements.BinaryExpression object at 0x000002BE04BCA440>]
+INFO - select pg_catalog.version()
+INFO - [raw sql] ()
+INFO - select current_schema()
+INFO - [raw sql] ()
+INFO - show standard_conforming_strings
+INFO - [raw sql] ()
+INFO - BEGIN (implicit)
+INFO - SELECT users_details.id, users_details.username, users_details.email, users_details.reason, users_details.comments, users_details.is_active 
+FROM users_details 
+WHERE lower(users_details.username) = $1::VARCHAR
+INFO - [generated in 0.00092s] ('aki',)
+INFO - No matching unsubscriptions found for the provided filters.
+INFO - ROLLBACK
+INFO - Executing query with filters: [<sqlalchemy.sql.elements.BinaryExpression object at 0x000002BE04C26FB0>]
+INFO - BEGIN (implicit)
+INFO - SELECT users_details.id, users_details.username, users_details.email, users_details.reason, users_details.comments, users_details.is_active 
+FROM users_details 
+WHERE lower(users_details.username) = $1::VARCHAR
+INFO - [cached since 7.018s ago] ('akhil',)
+INFO - Unsubscriptions retrieved successfully: [{'username': 'Akhil', 'email': 'Akhil@gmail.com', 'reason': 'Other', 'comments': 'Too Many Email. Storage wastage '}]
+INFO - ROLLBACK
